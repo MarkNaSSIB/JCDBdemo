@@ -5,6 +5,11 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+//
+// JCDB Demo by mark boutros
+// utilizes mysqlsampledatabase 'classicmodels'
+// incoroporates insert, update, query, and delete functionality
+//
 
 public class ConnectionDemo {
   public static void main(String[] argv) {
@@ -29,7 +34,8 @@ public class ConnectionDemo {
           "admin.sl0w");
       System.out.println("SQL Connection to database established!");
 
-      // query
+      // query block below, displays offices
+
       selectStmt = connection.createStatement();
       ResultSet rs = selectStmt.executeQuery("SELECT city,territory,country FROM offices");
       while (rs.next()) {
@@ -62,7 +68,8 @@ public class ConnectionDemo {
       }
 
 
-      // delete
+      // delete block below
+
       deleteStmt = connection.createStatement();
       deleteStmt.execute("DELETE FROM offices WHERE officeCode >= 8");
 
